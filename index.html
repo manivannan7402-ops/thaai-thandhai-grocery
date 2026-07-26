@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#166534">
+  <title>தாய் தந்தை மளிகை கடை</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <small>தினசரி சந்தை விலையில்</small>
+    <h1 id="shopName">தாய் தந்தை மளிகை கடை</h1>
+  </div>
+  <a class="admin-link" href="admin.html">Admin</a>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div>
+      <span class="badge">LIVE விலைப்பட்டியல்</span>
+      <h2>தேவையான பொருட்களைத் தேர்வு செய்து ஆர்டர் செய்யுங்கள்</h2>
+      <p>Admin மாற்றும் விலை அனைத்து வாடிக்கையாளர்களுக்கும் உடனடியாகத் தெரியும்.</p>
+    </div>
+    <div class="live-status"><span></span> Online</div>
+  </section>
+
+  <section class="controls">
+    <input id="searchInput" type="search" placeholder="பொருளைத் தேடுங்கள்">
+    <select id="categoryFilter"><option value="all">அனைத்து வகைகள்</option></select>
+  </section>
+
+  <p id="loading" class="message">பொருட்கள் ஏற்றப்படுகின்றன...</p>
+  <p id="errorMessage" class="message error hidden"></p>
+  <section id="productGrid" class="product-grid"></section>
+  <p id="emptyMessage" class="message hidden">பொருட்கள் எதுவும் இல்லை.</p>
+</main>
+
+<button id="cartButton" class="cart-button">🛒 கார்ட் <span id="cartCount">0</span></button>
+
+<div id="cartOverlay" class="overlay hidden">
+  <aside class="cart-panel">
+    <div class="cart-header">
+      <h2>உங்கள் ஆர்டர்</h2>
+      <button id="closeCart" class="icon-button">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="total-row"><span>மொத்தம்</span><strong id="cartTotal">₹0</strong></div>
+    <form id="orderForm">
+      <h3>வாடிக்கையாளர் விவரம்</h3>
+      <input id="customerName" required placeholder="பெயர்">
+      <input id="customerPhone" required inputmode="tel" placeholder="மொபைல் எண்">
+      <textarea id="customerAddress" required placeholder="முழு முகவரி"></textarea>
+      <textarea id="customerNote" placeholder="குறிப்பு (விருப்பம்)"></textarea>
+      <button class="primary-button" type="submit">ஆர்டர் உறுதிசெய்யவும்</button>
+    </form>
+    <p class="small-note">ஆர்டர் Database-ல் சேமிக்கப்பட்டு, பின்னர் WhatsApp திறக்கும்.</p>
+  </aside>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<footer>© <span id="year"></span> தாய் தந்தை மளிகை கடை</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
